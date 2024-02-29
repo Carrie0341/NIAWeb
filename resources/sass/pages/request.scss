@@ -1,0 +1,174 @@
+.request
+{
+    .first
+    {
+        padding-top:75px;
+    }
+
+    a:hover , a:active
+    {
+        text-decoration: none;
+    }
+
+    .mainTitle
+    {
+        .about
+        {
+            width: 297px;
+            height: 24px;
+            opacity: 0.5;
+            font-family: Rubik;
+            font-size: 20px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #818ca8;
+        }
+
+        .main
+        {
+            width: 297px;
+            height: 53px;
+            font-family: NotoSansCJKtc;
+            font-size: 36px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.39;
+            letter-spacing: 4px;
+            color: #122f51;
+        }
+    }
+
+    label.title
+    {
+        width: 96px;
+        height: 30px;
+        font-family: NotoSansCJKtc;
+        font-size: 1.5rem;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #122f51;
+    }
+
+    
+    .form-group input
+    {
+        background-color: #fafafa;
+        font-size:1.5rem;
+        padding:12px 20px;
+        color: #122f51;
+    }
+
+    .form-group
+    {
+        margin-top:1.2rem;
+    }
+
+    .form-control.password
+    {
+        height:60px;
+
+        input
+        {
+            width:80%;
+            border:none;
+            padding:0px;
+        }
+
+        span
+        {
+            padding-right:0.5rem;
+        }
+
+        span:hover
+        {
+            cursor:pointer;
+            text-decoration: underline;
+        }     
+    }
+
+    .apply-confirm
+    {
+        background: #ffffff;
+        box-shadow: 0 10px 20px 0 rgba(18, 47, 81, 0.2);
+        margin: 50px 0px;
+        padding: 50px 0;
+    }
+
+    .btn.mask-deep
+    {
+        font-size:1.5rem;
+        padding:12px 20px;
+        background-color:#122f51;
+        color:white;
+        border:solid 1px #122f51;
+        
+    }
+
+     .btn.mask
+    {
+        font-size:1.5rem;
+        padding:12px 20px;
+        background-color: none;
+        color:#122f51;
+        border:solid 1px #004596;
+    }
+    
+    small.hint
+    {
+        color:red;
+    }
+
+    label
+    {
+        height: 30px;
+        color: #122f51;
+        font-family: NotoSansCJKtc;
+        font-size: 16px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.75;
+        letter-spacing: 0.5px;
+        
+    }
+
+    input[type="checkbox"] 
+    {
+        display:none;
+    }
+
+    input[type="checkbox"] + label span 
+    {
+        display:inline-block;
+        width:30px;
+        height:30px;
+        vertical-align:middle;
+        background:url("/images/chockbox_un.svg") left top no-repeat;
+        cursor:pointer;
+    }
+
+    input[type="checkbox"]:checked + label span {
+        background:url("/images/chockbox.svg") top no-repeat;
+    }
+
+    .req-row {
+        display: flex;
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end;
+        @media screen and  (max-width: 576px) {
+            flex-direction: column;
+            -webkit-justify-content: flex-start;
+            justify-content: flex-start;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+    }
+
+}
