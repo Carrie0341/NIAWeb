@@ -1,21 +1,21 @@
-# version: "3"
-# services:
-#   php-container:
-#     image: php:7.1
-#     ports:
-#       - 8000:8000
-#     tty: true
-#     working_dir: /app
-#     volumes:
-#       - ./:/app
-
 version: '3'
 services:
-  app:
+ app:
     build: .
     ports:
-      - "8000:8000"
-    tty: true
-    working_dir: /app
+      - "8080:80"
     volumes:
-      - ./:/app
+      - .:/var/www/html
+#     depends_on:
+#       - db
+#  db:
+#     image: mysql:5.7
+#     environment:
+#       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+#       MYSQL_DATABASE: ${DB_DATABASE}
+#       MYSQL_USER: ${DB_USERNAME}
+#       MYSQL_PASSWORD: ${DB_PASSWORD}
+#     volumes:
+#       - db_data:/var/lib/mysql
+# volumes:
+#  db_data:
