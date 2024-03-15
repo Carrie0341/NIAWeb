@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="110px" height="110px" viewBox="0 0 110 110" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>btn/go to top</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="35" cy="35" r="35"></circle>
+        <filter x="-50.0%" y="-35.7%" width="200.0%" height="200.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="10" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0705882353   0 0 0 0 0.184313725   0 0 0 0 0.317647059  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="btn/go-to-top" transform="translate(20.000000, 10.000000)">
+            <g>
+                <g id="Oval">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#122F51" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="icon/up" transform="translate(19.000000, 22.000000)">
+                    <polyline id="Shape" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" transform="translate(16.500000, 3.500000) rotate(-450.000000) translate(-16.500000, -3.500000) " points="13 -5 20 3.54221299 13 12"></polyline>
+                    <text id="TOP" font-family="Arial-BoldMT, Arial" font-size="15" font-weight="bold" letter-spacing="1" fill="#FFFFFF">
+                        <tspan x="0.218017578" y="26">TOP</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

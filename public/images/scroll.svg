@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="53" height="129" viewBox="0 0 53 129">
+    <g fill="none" fill-rule="evenodd">
+        <path stroke="#818CA8" stroke-linecap="square" d="M27.5 1v80"/>
+        <text fill="#122F51" font-family="Rubik-Bold, Rubik" font-size="12" font-weight="bold" letter-spacing="1" transform="translate(0 1)">
+            <tspan x=".126" y="101">SCROLL</tspan>
+        </text>
+        <path stroke="#818CA8" stroke-linecap="square" d="M19 118.308l8.299 9.9 8.217-9.9"/>
+    </g>
+</svg>

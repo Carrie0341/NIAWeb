@@ -1,11 +1,11 @@
 /node_modules
-/tests
-/storage
-/public/hot
-/public
-/public/storage
+# /tests
+# /storage
+# /public/hot
+# /public
+# /public/storage
 
-/storage/*.key
+# /storage/*.key
 
 /vendor
 

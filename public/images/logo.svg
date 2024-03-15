@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="166" height="48" viewBox="0 0 166 48">
+    <g fill="#122F51" fill-rule="evenodd">
+        <text font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-size="14" font-weight="bold" letter-spacing="5" transform="translate(-2 -12)">
+            <tspan x="59" y="27">臺科大</tspan> <tspan x="59" y="44">產學聯盟平台</tspan>
+        </text>
+        <text font-family="Rubik-Regular, Rubik" font-size="10" transform="translate(-2 -12)">
+            <tspan x="2" y="54">NTUST Industry Alliance</tspan>
+        </text>
+        <text font-family="Rubik-Bold, Rubik" font-size="50" font-weight="bold" transform="translate(-2 -12)">
+            <tspan x="0" y="47">IA </tspan>
+        </text>
+    </g>
+</svg>

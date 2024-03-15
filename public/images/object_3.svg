@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="402px" height="402px" viewBox="0 0 402 402" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>object_3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="82.4563419%" y2="75.5629596%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#CDD4E4" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-19.9%" y="-19.9%" width="139.7%" height="139.7%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="20" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Alliance_2" transform="translate(-6.000000, -4873.000000)" fill="url(#linearGradient-1)">
+            <circle id="object_3" filter="url(#filter-2)" cx="207" cy="5074" r="151"></circle>
+        </g>
+    </g>
+</svg>

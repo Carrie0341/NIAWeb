@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="77px" height="58px" viewBox="0 0 77 58" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="11.2766477%" y1="-16.1015625%" x2="98.013937%" y2="111.293319%" id="linearGradient-1">
+            <stop stop-color="#3C81BE" offset="0%"></stop>
+            <stop stop-color="#164173" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Alliance_2" transform="translate(-131.000000, -3469.000000)">
+            <g id="Group-32" transform="translate(131.000000, 3232.000000)">
+                <g id="Group-31" transform="translate(0.000000, 239.000000)">
+                    <g id="logo">
+                        <ellipse id="Oval" stroke="#CDD4E4" stroke-width="2.12121212" cx="48.5" cy="27" rx="26.5" ry="27"></ellipse>
+                        <ellipse id="Oval" fill="url(#linearGradient-1)" cx="26.5" cy="27" rx="26.5" ry="27"></ellipse>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
