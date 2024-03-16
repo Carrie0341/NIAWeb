@@ -1,4 +1,5 @@
 <html lang="zh-CN">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -6,7 +7,7 @@
 
     <title>NTUST-IA</title>
 
-<!-- Bootstrap & JQuery -->
+    <!-- Bootstrap & JQuery -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
@@ -31,7 +32,7 @@
         </button>
 
         <a class="sidelogo animated" href="/">
-           <img>
+            <img>
         </a>
         <div id="navbarNav" class="navbar-collapse">
             <ul class="sidebar">
@@ -55,39 +56,39 @@
 
                 </li>
                 @if( !Session::has('user') || Session::has('isCompany'))
-                    <li id="request" class="sider">
-                        <a href="/request" data-mobile="Form">
-                            企業提案
-                            <img src="/images/menu.svg" style="width: 20px; height: 20px; object-fit: contain;">
-                        </a>
-                    </li>
+                <li id="request" class="sider">
+                    <a href="/request" data-mobile="Form">
+                        企業提案
+                        <img src="/images/menu.svg" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+                </li>
                 @endif
 
                 @if( !Session::has('user') )
-                    <li id="login" class="sider">
-                        <a href="javascript:;" data-mobile="Log In" onclick="loginBox()">
-                            登入平台
-                            <img src="/images/menu.svg" style="width: 20px; height: 20px; object-fit: contain;">
-                        </a>
-                    </li>
-                    <li id="register" class="btn-reg sider">
-                        <a href="/register" data-mobile="Join Us">
-                            加入我們
-                        </a>
-                    </li>
-                
+                <li id="login" class="sider">
+                    <a href="javascript:;" data-mobile="Log In" onclick="loginBox()">
+                        登入平台
+                        <img src="/images/menu.svg" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+                </li>
+                <li id="register" class="btn-reg sider">
+                    <a href="/register" data-mobile="Join Us">
+                        加入我們
+                    </a>
+                </li>
+
                 @else
-                    <li id="login" class="sider">
-                        <a href="/edit/{{ session('user') }}" data-mobile="edit">
-                            個人管理
-                            <img src="/images/menu.svg" style="width: 20px; height: 20px; object-fit: contain;">
-                        </a>
-                    </li>
-                    <li id="register" class="btn-reg btn-rad light sider">
-                        <a href="/logout" data-mobile="Log out">
-                            登出
-                        </a>
-                    </li>
+                <li id="login" class="sider">
+                    <a href="/edit/{{ session('user') }}" data-mobile="edit">
+                        個人管理
+                        <img src="/images/menu.svg" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+                </li>
+                <li id="register" class="btn-reg btn-rad light sider">
+                    <a href="/logout" data-mobile="Log out">
+                        登出
+                    </a>
+                </li>
                 @endif
             </ul>
             <div class="nav-footer">
@@ -132,21 +133,21 @@
         </div>
     </div>
 
-   @include('layout.footer')
+    @include('layout.footer')
 </body>
 
 <script>
-    $('.nav').on('click','.sider',function(){
+    $('.nav').on('click', '.sider', function() {
         $(this).addClass("active").siblings().removeClass("active");
-        $(this).find( "a" )[0].click();
+        $(this).find("a")[0].click();
     });
 
-    $('.nav-sidebar').on('click','.sider',function(){
+    $('.nav-sidebar').on('click', '.sider', function() {
         $(this).addClass("active").siblings().removeClass("active");
     });
 
-    $( document ).ready(function () {
-        $('#@yield('title')').children().addClass('active');
+    $(document).ready(function() {
+        $("#@yield('title')").children().addClass('active');
         $('.sidelogo').addClass('jackInTheBox');
     });
 
@@ -156,32 +157,32 @@
         $('#navbarNav').toggleClass("fadeInDown");
     }
 
-/*
-    $('.sidelogo').mouseenter(function () {
-        $(this).addClass('rotateOut');
-        $(this).removeClass('rotateIn');
-    });
-    $('.sidelogo').mouseleave(function () {
-        $(this).removeClass('rotateOut');
-        $(this).addClass('rotateIn');
-    });
-*/
+    /*
+        $('.sidelogo').mouseenter(function () {
+            $(this).addClass('rotateOut');
+            $(this).removeClass('rotateIn');
+        });
+        $('.sidelogo').mouseleave(function () {
+            $(this).removeClass('rotateOut');
+            $(this).addClass('rotateIn');
+        });
+    */
 
-    $('.sidelogo').on("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
+    $('.sidelogo').on("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function() {
         $(this).removeClass('jackInTheBox');
     });
 
 
-    $('.sider').mouseenter(function () {
+    $('.sider').mouseenter(function() {
         $(this).addClass('side-hover-animate');
     });
-    $('.sider').mouseleave(function () {
+    $('.sider').mouseleave(function() {
         $(this).removeClass('side-hover-animate');
     });
 
-    function loginBox (e) {
+    function loginBox(e) {
         $.ajax({
-            url : "/login",
+            url: "/login",
             type: "get",
             success: function(res) {
                 document.body.innerHTML += res;
@@ -189,98 +190,92 @@
         })
     }
 
-    function passwordForget( form ) {
+    function passwordForget(form) {
         /* 清空目前表單 */
-        while( form.firstElementChild != null && form.firstElementChild != undefined ) {
-            form.removeChild( form.firstElementChild );
+        while (form.firstElementChild != null && form.firstElementChild != undefined) {
+            form.removeChild(form.firstElementChild);
         }
-        
+
         const cloneNode = document.getElementById("passwordForgetForm").content.cloneNode(true);
-        form.appendChild( cloneNode );
+        form.appendChild(cloneNode);
     }
 
-    function passwordForgetFetch( form ) {
+    function passwordForgetFetch(form) {
         const formData = new FormData(form);
-        const request = new Request('{{ route("passwordForget") }}' , {
-            method : "POST",
-            body : formData
+        const request = new Request('{{ route("passwordForget") }}', {
+            method: "POST",
+            body: formData
         });
-        
+
         fetch(request)
-            .then( response => { 
-                return response.json() 
+            .then(response => {
+                return response.json()
             })
-            .then( resData => {
+            .then(resData => {
                 //驗證信箱失敗
-                if( !resData.state )
-                {
+                if (!resData.state) {
                     form.getElementsByTagName("input")[1].classList.add("is-invalid");
-                    alert( resData.message );
+                    alert(resData.message);
                 }
 
                 //驗證信箱成功
-                else
-                {
+                else {
                     form.getElementsByTagName("input")[1].classList.remove("is-invalid");
-                    sendHint( form );
+                    sendHint(form);
                 }
             })
-            .catch( (error) => {
-                console.log("錯誤：" , error);
+            .catch((error) => {
+                console.log("錯誤：", error);
                 alert('伺服器錯誤');
-        }); 
+            });
     }
 
-    function sendHint( form ) {
+    function sendHint(form) {
         const parentNodeRef = form.parentNode;
         const hintBox = document.getElementById("sendHintBox").content.cloneNode(true);
-        form.parentNode.removeChild( form );
-        parentNodeRef.appendChild( hintBox );
+        form.parentNode.removeChild(form);
+        parentNodeRef.appendChild(hintBox);
     }
 
-    function login( form ) {
-        console.log( form );
+    function login(form) {
+        console.log(form);
         const formData = new FormData(form);
-        const request = new Request('{{ route("login") }}' , {
-            method : "POST",
-            body : formData,
+        const request = new Request('{{ route("login") }}', {
+            method: "POST",
+            body: formData,
         });
         fetch(request)
-            .then( (response) => {
+            .then((response) => {
                 return response.json();
             })
-            .then( (resData) => {
+            .then((resData) => {
                 console.log(resData);
 
                 //登入失敗
-                if( !resData.state )
-                {
+                if (!resData.state) {
                     form.getElementsByTagName("input")[1].classList.add("is-invalid");
-                    alert( resData.message );
+                    alert(resData.message);
                 }
 
                 //登入成功
-                else
-                {
-                    alert( resData.message );
+                else {
+                    alert(resData.message);
                     location.href = '{{ route("home") }}';
                 }
             })
-            .catch( (error) => {
-                console.log("錯誤：" , error);
+            .catch((error) => {
+                console.log("錯誤：", error);
                 alert('伺服器錯誤');
-        });
+            });
     }
-
-
 </script>
 
 @if( Session::has('feedback') & Session::get('feedback') == "notLogin")
 <script>
-    window.addEventListener('load' , function(){
+    window.addEventListener('load', function() {
         loginBox();
     })
-</script>    
+</script>
 @endif
 
 </html>
