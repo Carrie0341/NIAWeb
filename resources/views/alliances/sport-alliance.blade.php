@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('title', 'era-alliance')
+@section('title', 'rrclp-alliance')
 
 @section('extra_head')
 <script src="/js/rellax.min.js"></script>
@@ -17,7 +17,7 @@
 
 <section id="introduce" class="intro">
     <label>Alliance</label>
-    <h1>延展實境應用技術產學聯盟</h1>
+    <h1>智能運動科技應用技術聯盟</h1>
     <p>Extended Reality Application Alliance</p>
 
     <div class="title">

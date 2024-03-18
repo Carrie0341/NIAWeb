@@ -125,8 +125,15 @@
     content: url("/images/alliance/rrclp-logo-w.svg") !important;
   }
 }
+.sport-alliance .sidelogo img {
+    content: url("/images/alliance/rrclp-logo.svg") !important;
 
-.era-alliance, .rrclp-alliance {
+    @media screen and (max-width: 576px) {
+        content: url("/images/alliance/rrclp-logo-w.svg") !important;
+    }
+}
+
+.era-alliance, .rrclp-alliance, .sport-alliance {
   color: #122f51;
 
   .BG {

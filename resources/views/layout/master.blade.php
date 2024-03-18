@@ -98,12 +98,12 @@
                     <button>送出</button>
                 </form>
                 <div class="contact">
-                    <p style="margin: 0;">張永生經理</p>
-                    <p>886-2733-3713</p>
-                    <p>yongshen@mail.ntust.edu.tw</p>
+                    <p style="margin: 0;">胡敏君教授</p>
+                    <p>+886-988-281-500</p>
+                    <p>anitahu@cs.nthu.edu.tw</p>
                     <p>
-                        106台北市大安區基隆路四段43號國際大樓12F-1212室<br>
-                        國立臺灣科技大學企業服務中心
+                        300新竹市東區光復路二段101號<br>
+                        國立清華大學台達館
                     </p>
                 </div>
                 <div class="flogos">

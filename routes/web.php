@@ -22,25 +22,29 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/about', function (){
+Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/alliance', function (){
+Route::get('/alliance', function () {
     return view('alliance');
 });
 
-Route::get('/news', function (){
+Route::get('/news', function () {
     return view('news');
 });
 
 Route::group(['prefix' => 'alliance'], function () {
-    Route::get('/era', function (){
+    Route::get('/era', function () {
         return view('alliances.era-alliance');
     });
 
-    Route::get('/rrclp', function (){
+    Route::get('/rrclp', function () {
         return view('alliances.rrclp-alliance');
+    });
+
+    Route::get('/sport', function () {
+        return view('alliances.sport-alliance');
     });
 });
 
@@ -52,28 +56,26 @@ Route::group(['middleware' => 'AuthMiddleware'], function () {
     Route::group(['middleware' => 'AdminMiddleware'], function () {
         Route::get('/administrator', 'AdministratorController@index')->name('administrator');
         Route::get('/administrator/user', 'AdministratorController@userView')->name('administrator.user');
-        Route::get('/administrator/request/all' , 'AdministratorController@requestView')->name('administrator.request');
-        Route::get('/administrator/request/filter/{allianceID?}' , 'AdministratorController@requestAllianceView')->name('administrator.request.alliance');
+        Route::get('/administrator/request/all', 'AdministratorController@requestView')->name('administrator.request');
+        Route::get('/administrator/request/filter/{allianceID?}', 'AdministratorController@requestAllianceView')->name('administrator.request.alliance');
         Route::get('/administrator/alliance', 'AdministratorController@allianceView')->name('administrator.alliance');
         Route::get('/administrator/reject/{id}', 'AdministratorController@toggleReq')->name('administrator.toggleReq');
-        Route::get('/approved/{id}' , 'AdministratorController@approved')->name('administrator.approved');
+        Route::get('/approved/{id}', 'AdministratorController@approved')->name('administrator.approved');
 
-        Route::get('/remove/alliance/{id}' , 'AdministratorController@removeAlliance')->name('administrator.removeAlliance');
+        Route::get('/remove/alliance/{id}', 'AdministratorController@removeAlliance')->name('administrator.removeAlliance');
         Route::post('/addAlliance', 'submitController@addAlliance')->name('administrator.addAlliance');
     });
 
-    Route::get( '/request', 'submitController@requestView')->name('request');
+    Route::get('/request', 'submitController@requestView')->name('request');
     Route::post('/request', 'submitController@request');
 
     Route::post('/industryreq', 'submitController@listReq');
 });
 
 /* AuthContoller: Login, Logout , Register */
-Route::get('/login' , "AuthController@formOfLogin")->name('login');
-Route::get('/logout/{lang?}' , "AuthController@logout")->name('logout');
-Route::get('/register' , "AuthController@formOfRegister")->name('register');
-Route::post('/login' ,"AuthController@submitOfLogin");
-Route::post('/passwordForget' ,"AuthController@submitOfpswdForget")->name('passwordForget');
-Route::post('/register' , "AuthController@submitOfRegister");
-
-
+Route::get('/login', "AuthController@formOfLogin")->name('login');
+Route::get('/logout/{lang?}', "AuthController@logout")->name('logout');
+Route::get('/register', "AuthController@formOfRegister")->name('register');
+Route::post('/login', "AuthController@submitOfLogin");
+Route::post('/passwordForget', "AuthController@submitOfpswdForget")->name('passwordForget');
+Route::post('/register', "AuthController@submitOfRegister");
