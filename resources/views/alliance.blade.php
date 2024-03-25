@@ -37,7 +37,7 @@
             <a href="/alliance/sport" class="ia-icon">
                 <img src="/images/ia-circle.svg">
                 <div class="ai-logo">
-                    <img src="/images/alliance/rrclp-icon.svg">
+                    <img src="/images/logo-01-cut.png">
                 </div>
                 <div>智能運動科技應用技術聯盟</div>
             </a>

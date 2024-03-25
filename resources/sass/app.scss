@@ -143,13 +143,15 @@ div, p {
       width: 194px;
       height: 67px;
       object-fit: contain;
-      content: url("/images/logo_b.svg");
+    //   content: url("/images/logo_b.svg");
+        content: url("/images/logo-05-cut.png");
 
       @media screen and  (max-width: 576px) {
         width: 123px;
         height: 42px;
         margin-top: 10px;
-        content: url("/images/logo_w.svg");
+        // content: url("/images/logo_w.svg");
+        content: url("/images/logo-06-cut.png");
       }
     }
 
@@ -314,7 +316,8 @@ div, p {
     }
 
     .sidelogo img{
-      content: url("/images/logo_w.svg");
+    //   content: url("/images/logo_w.svg");
+      content: url("/images/logo-06-cut.png");
     }
   }
 }

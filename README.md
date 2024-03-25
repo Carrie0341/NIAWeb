@@ -33,3 +33,11 @@ php artisan migrate:refresh --seed
 ```
 
 瀏覽器啟動 [http://localhost:8080](http://localhost:8080)，就可以看到 Laravel 的首頁了。
+
+## Note
+
+改好 CSS 之後，記得要重新 build 一次。
+
+```bash
+npm run production
+```
