@@ -13,19 +13,13 @@
         </p>
     </div>
     <div class="pull">
-        <form class="email">
-            <input type="email" placeholder="請輸入Email訂閱電子報">
-            <button>送出</button>
-            <a href="#facebook"><img src="/images/footer/facebook-round-small.svg" class="Facebook-round-small"></a>
-        </form>
         <div class="flogos">
             <div class="inline">
-                <img src="/images/footer/logo-iac.png" srcset="/images/footer/logo-iac@2x.png 2x,/images/footer/logo-iac@3x.png 3x" class="Group">
-                <img src="/images/footer/logo-most.png" srcset="/images/footer/logo-most@2x.png 2x,/images/footer/logo-most@3x.png 3x" class="Group">
-                <img src="/images/footer/logo-taiwan-tech.png" srcset="/images/footer/logo-taiwan-tech@2x.png 2x,/images/footer/logo-taiwan-tech@3x.png 3x" class="Group">
+                <img src="/images/footer/logo-nstc.png" srcset="/images/footer/logo-nstc@2x.png 2x,/images/footer/logo-nstc@3x.png 3x" class="Group">
+                <img src="/images/footer/logo-nthu.png" srcset="/images/footer/logo-nthu@2x.png 2x,/images/footer/logo-nthu@3x.png 3x" class="Group">
             </div>
-            <div class="d-flex justify-content-between">
-                <p>科技部計畫補助 </p>
+            <div class="d-flex justify-content-between" style="white-space: nowrap;">
+                <p>國科會計畫補助</p>
                 <div class="hl"></div>
             </div>
         </div>
