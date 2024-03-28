@@ -19,7 +19,8 @@ Route::any('/Permission/{link?}', function ($link = "Empty hyper-link") {
 })->name('TestPermission');
 
 Route::get('/', function () {
-    return view('home');
+    // return view('home');
+    return view('alliances.sport-alliance');
 });
 
 Route::get('/about', function () {
@@ -27,26 +28,27 @@ Route::get('/about', function () {
 });
 
 Route::get('/alliance', function () {
-    return view('alliance');
+    // return view('alliance');
+    return view('alliances.sport-alliance');
 });
 
 Route::get('/news', function () {
     return view('news');
 });
 
-Route::group(['prefix' => 'alliance'], function () {
-    Route::get('/era', function () {
-        return view('alliances.era-alliance');
-    });
+// Route::group(['prefix' => 'alliance'], function () {
+//     Route::get('/era', function () {
+//         return view('alliances.era-alliance');
+//     });
 
-    Route::get('/rrclp', function () {
-        return view('alliances.rrclp-alliance');
-    });
+//     Route::get('/rrclp', function () {
+//         return view('alliances.rrclp-alliance');
+//     });
 
-    Route::get('/sport', function () {
-        return view('alliances.sport-alliance');
-    });
-});
+//     Route::get('/sport', function () {
+//         return view('alliances.sport-alliance');
+//     });
+// });
 
 Route::group(['middleware' => 'AuthMiddleware'], function () {
     Route::get('/home', 'HomeController@index')->name('home');

@@ -36,15 +36,15 @@
         </a>
         <div id="navbarNav" class="navbar-collapse">
             <ul class="sidebar">
-                <li id="about" class="sider">
+                <!-- <li id="about" class="sider">
                     <a href="/about" data-mobile="About">
                         關於平台
                         <img src="/images/menu.svg" style="width: 20px; height: 20px; object-fit: contain;">
                     </a>
-                </li>
+                </li> -->
                 <li id="alliance" class="sider">
                     <a href="/alliance" data-mobile="Alliance">
-                        產學聯盟
+                        關於聯盟
                         <img src="/images/menu.svg" style="width: 20px; height: 20px; object-fit: contain;">
                     </a>
                 </li>
