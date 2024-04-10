@@ -41,3 +41,7 @@ php artisan migrate:refresh --seed
 ```bash
 npm run production
 ```
+
+## Reference
+
+- [Laravel](https://laravel.com/)
