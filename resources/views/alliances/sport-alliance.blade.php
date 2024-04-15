@@ -18,7 +18,7 @@
 <section id="introduce" class="intro">
     <label>Alliance</label>
     <h1>智能運動科技應用技術聯盟</h1>
-    <p>Intelligent Sports Technology Application Alliance</p>
+    <p>Intelligent Sports Technology Application Industry-Academia Alliance</p>
 
     <div class="title">
         <h1>聯盟介紹</h1>

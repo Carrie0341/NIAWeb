@@ -39,6 +39,7 @@ php artisan migrate:refresh --seed
 改好 CSS 之後，記得要重新 build 一次。
 
 ```bash
+export NODE_OPTIONS=--openssl-legacy-provider
 npm run production
 ```
 
