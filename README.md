@@ -5,6 +5,7 @@
 - Laravel
 - PHP 7.1
 - MySQL 5.7
+- Docker
 
 ## 步驟
 
@@ -17,7 +18,7 @@ docker compose up -d
 如果是第一次跑這個專案，可能會需要跑以下指令更新 Laravel 的相依套件。
 
 ```bash
-docker compose exec app composer update
+docker compose exec app composer install
 ```
 
 進入 Container
@@ -43,6 +44,19 @@ export NODE_OPTIONS=--openssl-legacy-provider
 npm run production
 ```
 
+## Deploy Server
+
+```bash
+copy .env.example .env
+git clone https://github.com/peter0512lee/NIAWeb
+cd NIAWeb
+docker compose up -d
+docker compose exec app composer install
+docker compose exec app bash
+php artisan migrate:refresh --seed
+```
+
 ## Reference
 
 - [Laravel](https://laravel.com/)
+- [docker restart always](https://stackoverflow.com/questions/43671482/how-to-run-docker-compose-up-d-at-system-start-up)
