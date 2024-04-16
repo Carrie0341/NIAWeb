@@ -47,9 +47,9 @@ npm run production
 ## Deploy Server
 
 ```bash
-copy .env.example .env
 git clone https://github.com/peter0512lee/NIAWeb
 cd NIAWeb
+copy .env.example .env
 docker compose up -d
 docker compose exec app composer install
 docker compose exec app bash
