@@ -16,6 +16,10 @@
         padding: 15px 50px 15px 21px;
         border: none;
         outline: none;
+
+        @media screen and  (max-width: 576px) {
+          padding: 15px 10px 15px 10px;
+        }
       }
 
       .alliance-title {
@@ -24,6 +28,10 @@
       .alliance-filter {
         grid-area: alliance-filter;
         width: 380px;
+
+        @media screen and  (max-width: 576px) {
+          width: 100%;
+        }
       }
       .year-title {
         grid-area: year-title;
