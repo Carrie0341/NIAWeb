@@ -264,9 +264,35 @@
         <div class="level">
             <a class="lv-title" onclick="coll_right(this)">
                 <picture>
-                    <source srcset="/images/alliance/sliver.svg" media="(min-width: 576px)">
-                    <source srcset="/images/alliance/sliver-m.svg" media="(max-width: 576px)">
-                    <img src="/images/alliance/sliver.svg" class="lv-icon">
+                    <source srcset="/images/alliance/silver.svg" media="(min-width: 576px)">
+                    <source srcset="/images/alliance/silver-m.svg" media="(max-width: 576px)">
+                    <img src="/images/alliance/silver.svg" class="lv-icon">
+                </picture>
+                <span>銀質會員</span>
+                <picture>
+                    <source srcset="/images/empty.png" media="(min-width: 576px)">
+                    <source srcset="/images/button_plus.svg" media="(max-width: 576px)">
+                    <img src="" class="lv-toggle">
+                </picture>
+            </a>
+            <ul>
+                <li>產學合作服務</li>
+                <li>提供線上產學平台(企業需求提案)</li>
+                <li class="none">參與技術論壇/研討會(報名費打5折)</li>
+                <li class="none">舉辦專屬攬才說明會</li>
+                <li class="none">產碩專班人才培育合作</li>
+                <li class="none">協助政府相關產學計畫提案合作</li>
+                <li class="none">每年依公司政策推薦合適教授媒合</li>
+                <li class="none">專人PM服務</li>
+            </ul>
+            <div class="price">NT$ <span>0</span></div>
+        </div>
+        <div class="level">
+            <a class="lv-title" onclick="coll_right(this)">
+                <picture>
+                    <source srcset="/images/alliance/gold.svg" media="(min-width: 576px)">
+                    <source srcset="/images/alliance/gold-m.svg" media="(max-width: 576px)">
+                    <img src="/images/alliance/gold.svg" class="lv-icon">
                 </picture>
                 <span>金質會員</span>
                 <picture>
@@ -316,9 +342,9 @@
         <div class="level">
             <a class="lv-title" onclick="coll_right(this)">
                 <picture>
-                    <source srcset="/images/alliance/titanium.svg" media="(min-width: 576px)">
-                    <source srcset="/images/alliance/titanium-m.svg" media="(max-width: 576px)">
-                    <img src="/images/alliance/titanium.svg" class="lv-icon">
+                    <source srcset="/images/alliance/diamond.svg" media="(min-width: 576px)">
+                    <source srcset="/images/alliance/diamond-m.svg" media="(max-width: 576px)">
+                    <img src="/images/alliance/diamond.svg" class="lv-icon">
                 </picture>
                 <span>鈦金會員</span>
                 <picture>
