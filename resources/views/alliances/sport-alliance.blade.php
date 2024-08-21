@@ -285,7 +285,7 @@
                 <li class="none">每年依公司政策推薦合適教授媒合</li>
                 <li class="none">專人PM服務</li>
             </ul>
-            <div class="price">NT$ <span>0</span></div>
+            <div class="price"><span>免費</span></div>
         </div>
         <div class="level">
             <a class="lv-title" onclick="coll_right(this)">
