@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +27,6 @@
 
     @yield('extra_script')
 </head>
-
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-primary navbar-laravel">
@@ -44,7 +42,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -60,7 +58,7 @@
                             <a class="nav-link" href="{{ route('administrator.alliance') }}">聯盟一覽</a>
                         </li>
 
-
+                        
                     </ul>
                 </div>
             </div>
@@ -71,5 +69,4 @@
         </main>
     </div>
 </body>
-
 </html>

@@ -1,0 +1,207 @@
+.edit
+{
+    .first
+    {
+        padding-top:75px;
+    }
+
+    a:hover , a:active
+    {
+        text-decoration: none;
+    }
+
+    .join-us
+    {
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:410px;
+        height: 593px;
+        padding-top:150px;
+
+        .about
+        {
+            width: 297px;
+            height: 24px;
+            opacity: 0.5;
+            font-family: Rubik;
+            font-size: 20px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #818ca8;
+        }
+
+        .main
+        {
+            width: 297px;
+            height: 53px;
+            font-family: NotoSansCJKtc;
+            font-size: 36px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.39;
+            letter-spacing: 4px;
+            color: #122f51;
+        }
+
+        .subTitle
+        {
+            margin-top:2rem;
+            color:black;
+        }
+    }
+
+    label.title
+    {
+        width: 96px;
+        height: 30px;
+        font-family: NotoSansCJKtc;
+        font-size: 1.5rem;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #122f51;
+    }
+
+    .linked-area
+    {
+        margin-bottom: 2rem;
+    }
+
+    .form-group input
+    {
+        font-size:1.5rem;
+        padding:12px 20px;
+    }
+
+    .form-group
+    {
+        margin-top:1.2rem;
+    }
+
+    .form-control.password
+    {
+        height:60px;
+
+        input
+        {
+            width:80%;
+            border:none;
+            padding:0px;
+        }
+
+        span
+        {
+            padding-right:0.5rem;
+        }
+
+        span:hover
+        {
+            cursor:pointer;
+            text-decoration: underline;
+        }     
+    }
+
+    .apply-confirm
+    {
+        background: #ffffff;
+        box-shadow: 0 10px 20px 0 rgba(18, 47, 81, 0.2);
+        margin: 50px 0px;
+        padding: 50px 0;
+    }
+
+    .btn.mask-deep
+    {
+        font-size:1.5rem;
+        padding:12px 20px;
+        background-color:#122f51;
+        color:white;
+        border:solid 1px #122f51;
+        
+        
+    }
+
+     .btn-edit-light
+    {
+        font-size:1rem;
+        padding:8px 3rem;
+        background-color: rgba(255,255,255,0);
+        color:#122f51;
+        border:solid 1px #004596;
+        border-radius:  22.5px;
+        &:hover
+        {
+            cursor:pointer;
+        }
+    }
+
+    .btn-edit-dark
+    {
+        font-size:1rem;
+        padding:8px 3rem;
+        background-color: #122f51;
+        color:white;
+        border:solid 1px #004596;
+        border-radius:  22.5px;
+        &:hover
+        {
+            cursor:pointer;
+        }
+    }
+
+    small.hint
+    {
+        color:red;
+    }
+
+    label
+    {
+        height: 30px;
+        color: #122f51;
+        font-family: NotoSansCJKtc;
+        font-size: 16px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.75;
+        letter-spacing: 0.5px;
+        
+    }
+
+    input[type="checkbox"] 
+    {
+        display:none;
+    }
+
+    input[type="checkbox"] + label span 
+    {
+        display:inline-block;
+        width:30px;
+        height:30px;
+        vertical-align:middle;
+        background:url("/images/upchockbox.png") left top no-repeat;
+        cursor:pointer;
+    }
+
+    input[type="checkbox"]:checked + label span {
+        background:url("/images/chockbox.svg") top no-repeat;
+    }
+
+    input.disabled
+    {
+        background : none;
+        border:none;
+    }
+
+    .input-warpper
+    {
+        border-bottom:1px solid #cdd4e4;
+        border-bottom-width: 50%;
+    }
+}

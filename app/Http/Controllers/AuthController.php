@@ -13,9 +13,16 @@ use Hash;
 use Mail;
 use App\Mail\Mailer;
 use Validator;
+use URL;
 
 class AuthController extends Controller
 {
+    public function __construct()
+    {
+        // 強制所有由 URL 生成器生成的 URL 使用 HTTPS
+        URL::forceScheme('https');
+    }
+
     /* 登入表單 */
     public function formOfLogin()
     {
@@ -27,18 +34,14 @@ class AuthController extends Controller
     {
         $user = User::where('email', $request->account)->orWhere('account', $request->account)->first();
 
-        if ($user != null && Hash::check($request->Password, $user->password) ) {
-            
-            if( $user->email_verified_at == null )
-            {
+        if ($user != null && Hash::check($request->Password, $user->password)) {
+
+            if ($user->email_verified_at == null) {
                 $response = [
                     "state" => false,
                     "message" => "用戶同意審查中",
                 ];
-            }
-
-            else
-            {
+            } else {
                 $remember_token = str_random(40);
                 $user->remember_token = $remember_token;
                 $user->save();
@@ -49,17 +52,15 @@ class AuthController extends Controller
                 session()->put('user', $remember_token);
 
                 // check user is Company
-                if($user->user_info->type == 2) {
+                if ($user->user_info->type == 2) {
                     session()->put('isCompany', $remember_token);
                 }
             }
-            
-            if(isset($request->keep))
-            {
+
+            if (isset($request->keep)) {
                 Cookie::forever('account', $request->account);
                 Cookie::forever('password', $request->Password);
             }
-
         } else {
             $response = [
                 "state" => false,
@@ -74,21 +75,17 @@ class AuthController extends Controller
     public function submitOfpswdForget(Request $request)
     {
         $user = User::where('email', $request->contactEmail)->first();
-    
-        if ($user == null)
-        {
+
+        if ($user == null) {
             $response = [
                 "state" => false,
                 "message" => "不存在的信箱",
             ];
-        }
-
-        else
-        {
+        } else {
             $nextPassword = str_random(18);
             $user->password = Hash::make($nextPassword);
             $user->save();
-            $this->sendNewPassword( $user->email , $nextPassword );
+            $this->sendNewPassword($user->email, $nextPassword);
 
             $response = [
                 "state" => true,
@@ -110,90 +107,192 @@ class AuthController extends Controller
     /* 註冊表單 */
     public function formOfRegister()
     {
+        // 如果是 HTTP 請求，重定向到 HTTPS
+        if (!request()->secure() && app()->environment('production')) {
+            return redirect()->secure(request()->getRequestUri());
+        }
+
         $alliances = Alliance::all();
-        return view('auth.register')->with('alliances' , $alliances);
+        return view('auth.register')->with([
+            'alliances' => $alliances,
+            'secureRegisterUrl' => secure_url('register') // 添加安全的註冊URL
+        ]);
     }
 
     /* 提交註冊 */
     public function submitOfRegister(Request $request)
     {
+        // 記錄請求信息到日誌
+        \Log::info('表單提交開始', ['request' => $request->all(), 'is_secure' => $request->secure()]);
 
-        
-        if(User::where('email' , $request->T_contactEmail)->exists() || User::where('email' , $request->C_contactEmail)->exists())
-        {
-            if( isset($request->company) )
-                return Redirect::back()->withErrors(["email" => "該信箱已被註冊"])->withInput()->with("feedback", "Company");
-            else
-                return Redirect::back()->withErrors(["email" => "該信箱已被註冊"])->withInput();
-        }
+        // 檢查是否為AJAX請求
+        $isAjax = $request->ajax() || $request->wantsJson() || $request->header('X-Requested-With') === 'XMLHttpRequest';
 
-        /* 提交教師表單 */
-        if (isset($request->teacher)) {
+        // 從表單類型欄位或提交按鈕名稱確定表單類型
+        $formType = $request->formType ?? ($request->has('teacher') ? 'teacher' : ($request->has('company') ? 'company' : null));
+
+        \Log::info('表單類型: ' . $formType);
+
+        // 處理教師表單
+        if ($formType === 'teacher') {
+            // 設置 teacher 參數，以便後續代碼能夠識別
+            $request->merge(['teacher' => true]);
+
             $validator = Validator::make($request->all(), [
                 "name" => "required",
-                "password" => "required|required_with:confirm|same:confirm",
-                "confirm" => "required",
+                "phone" => "required",
+                "T_contactEmail" => "required|email"
             ]);
 
             if ($validator->fails()) {
+                \Log::warning('表單驗證失敗', $validator->errors()->toArray());
+
+                if ($isAjax) {
+                    return response()->json([
+                        'success' => false,
+                        'errors' => $validator->errors()
+                    ]);
+                }
+
                 return Redirect::back()->withErrors($validator->errors())->withInput()->with("feedback", "Teacher");
             } else {
-                $remember_token = str_random(40);
-                $user = new User;
+                try {
+                    // 準備郵件內容
+                    $emailData = [
+                        "type" => "教師",
+                        "name" => $request->name,
+                        "phone" => $request->phone,
+                        "email" => $request->T_contactEmail,
+                        "department" => $request->department ?? '未提供',
+                        "jobTitle" => $request->jobTitle ?? '未提供',
+                        "message" => $request->message ?? '無',
+                        "submitTime" => now()->format('Y-m-d H:i:s')
+                    ];
 
-                $user->name = $request->name;
-                $user->phone = isset($request->phone) ? $request->phone : "";
-                $user->account = $request->account;
-                $user->password = Hash::make($request->password);
-                $user->email = $request->T_contactEmail;
-                $user->remember_token = $remember_token;
-                $user->save();
+                    \Log::info('準備發送教師郵件', $emailData);
 
+                    // 發送郵件
+                    Mail::to('asdqweqa@go.edu.tw')->send(new Mailer("智能運動科技應用技術聯盟-聯絡表單內容(教師)", "mails.contactForm", $emailData));
+                    Mail::to('typan@mail.ntust.edu.tw')->send(new Mailer("智能運動科技應用技術聯盟-聯絡表單內容(教師)", "mails.contactForm", $emailData));
 
-                $info = new UserInfo;
-                $info->user_id = $user->id;
-                $info->type = 1;
-                $info->department = isset($request->department) ? $request->department : "";
-                $info->jobTitle = isset($request->jobTitle) ? $request->jobTitle : "";
-                $info->save();
-                return Redirect::to('/');
+                    \Log::info('教師郵件已發送');
+
+                    if ($isAjax) {
+                        return response()->json([
+                            'success' => true,
+                            'message' => '恭喜您完成申請，服務專員會再主動與您電話連絡，確認申請資料'
+                        ]);
+                    }
+
+                    return Redirect::to(secure_url('register'))->with('success', '恭喜您完成申請，服務專員會再主動與您電話連絡，確認申請資料');
+                } catch (\Exception $e) {
+                    \Log::error('郵件發送失敗: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+
+                    if ($isAjax) {
+                        return response()->json([
+                            'success' => false,
+                            'message' => '申請提交失敗，請稍後再試或直接聯繫我們。錯誤: ' . $e->getMessage()
+                        ]);
+                    }
+
+                    return Redirect::back()->withInput()->with('error', '申請提交失敗，請稍後再試或直接聯繫我們。錯誤: ' . $e->getMessage());
+                }
             }
         }
 
-        /* 提交企業表單 */
-        if (isset($request->company)) {
+        // 處理企業表單
+        if ($formType === 'company') {
+            // 設置 company 參數，以便後續代碼能夠識別
+            $request->merge(['company' => true]);
+
             $validator = Validator::make($request->all(), [
                 "name" => "required",
-                "password" => "required|required_with:confirm|same:confirm",
-                "confirm" => "required"
+                "phone" => "required",
+                "C_contactEmail" => "required|email"
             ]);
 
             if ($validator->fails()) {
+                \Log::warning('表單驗證失敗', $validator->errors()->toArray());
+
+                if ($isAjax) {
+                    return response()->json([
+                        'success' => false,
+                        'errors' => $validator->errors()
+                    ]);
+                }
+
                 return Redirect::back()->withErrors($validator->errors())->withInput()->with("feedback", "Company");
             } else {
-                $remember_token = str_random(40);
+                try {
+                    // 準備郵件內容
+                    $emailData = [
+                        "type" => "企業",
+                        "name" => $request->name,
+                        "phone" => $request->phone,
+                        "email" => $request->C_contactEmail,
+                        "companyName" => $request->companyName ?? '未提供',
+                        "jobTitle" => $request->jobTitle ?? '未提供',
+                        "message" => $request->message ?? '無',
+                        "submitTime" => now()->format('Y-m-d H:i:s')
+                    ];
 
-                $user = new User;
-                $user->name = $request->name;
-                $user->phone = isset($request->phone) ? $request->phone : "";
-                $user->account = $request->account;
-                $user->password = Hash::make($request->password);
-                $user->email = $request->C_contactEmail;
-                $user->remember_token = $remember_token;
-                $user->save();
+                    // 如果有勾選設定項目，也加入郵件內容
+                    if (isset($request->setting)) {
+                        $alliances = Alliance::whereIn('id', $request->setting)->pluck('name')->toArray();
+                        $emailData['settings'] = $alliances;
+                    }
 
-                $info = new UserInfo;
-                $info->user_id = $user->id;
-                $info->type = 2;
-                $info->department = isset($request->department) ? $request->department : "";
-                $info->personal = isset($request->setting) ? json_encode($request->setting) : null;
-                $info->jobTitle = isset($request->jobTitle) ? $request->jobTitle : "";
-                $info->companyName = isset($request->companyName) ? $request->companyName : "";
-                $info->save();
+                    \Log::info('準備發送企業郵件', $emailData);
 
-                return Redirect::to('/');
+                    // 發送郵件
+                    Mail::to('asdqweqa@go.edu.tw')->send(new Mailer("智能運動科技應用技術聯盟-聯絡表單內容(企業)", "mails.contactForm", $emailData));
+                    Mail::to('typan@mail.ntust.edu.tw')->send(new Mailer("智能運動科技應用技術聯盟-聯絡表單內容(企業)", "mails.contactForm", $emailData));
+
+                    \Log::info('企業郵件已發送');
+
+                    if ($isAjax) {
+                        return response()->json([
+                            'success' => true,
+                            'message' => '恭喜您完成申請，服務專員會再主動與您電話連絡，確認申請資料'
+                        ]);
+                    }
+
+                    return Redirect::to(secure_url('register'))->with('success', '恭喜您完成申請，服務專員會再主動與您電話連絡，確認申請資料');
+                } catch (\Exception $e) {
+                    \Log::error('郵件發送失敗: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+
+                    if ($isAjax) {
+                        return response()->json([
+                            'success' => false,
+                            'message' => '申請提交失敗，請稍後再試或直接聯繫我們。錯誤: ' . $e->getMessage()
+                        ]);
+                    }
+
+                    return Redirect::back()->withInput()->with('error', '申請提交失敗，請稍後再試或直接聯繫我們。錯誤: ' . $e->getMessage());
+                }
             }
         }
+
+        // 如果沒有識別到表單類型，嘗試根據提交的數據判斷
+        if ($request->has('T_contactEmail') && !empty($request->T_contactEmail)) {
+            // 如果有填寫教師郵箱，視為教師表單
+            return $this->submitOfRegister($request->merge(['formType' => 'teacher']));
+        } elseif ($request->has('C_contactEmail') && !empty($request->C_contactEmail)) {
+            // 如果有填寫企業郵箱，視為企業表單
+            return $this->submitOfRegister($request->merge(['formType' => 'company']));
+        }
+
+        // 如果仍然無法識別表單類型
+        \Log::warning('未知的表單提交類型');
+
+        if ($isAjax) {
+            return response()->json([
+                'success' => false,
+                'message' => '未知的表單提交類型，請確保選擇了正確的表單類型（教師或企業）'
+            ]);
+        }
+
+        return Redirect::back()->with('error', '未知的表單提交類型，請確保選擇了正確的表單類型（教師或企業）');
     }
 
     /* 編輯個資表單 */
@@ -208,12 +307,11 @@ class AuthController extends Controller
     {
         $user = User::where('remember_token', $token)->with('user_info')->first();
         $info = $user->user_info;
-        
-        if( $user->email != $request->contactEmail && User::where('email' , $request->contactEmail)->first() != null )
-        {
+
+        if ($user->email != $request->contactEmail && User::where('email', $request->contactEmail)->first() != null) {
             return redirect()->back()->withErrors(["email" => "TEST"])->withInput();
         }
-        
+
         $user->phone = $request->phone;
         $user->email = $request->contactEmail;
         if ($request->isChange)
@@ -224,32 +322,26 @@ class AuthController extends Controller
         $user->save();
         $info->save();
 
-        return redirect()->to(route('edit', ['token' => $user->remember_token]));
+        return redirect()->to(secure_url('edit/' . $user->remember_token));
     }
 
-    private function sendNewPassword( $mailAddress , $newPassword )
+    private function sendNewPassword($mailAddress, $newPassword)
     {
-        
-            $to = collect([
-                'Receiver' => $mailAddress,
-            ]);
+        $to = collect([
+            'Receiver' => $mailAddress,
+        ]);
 
-            $params = [
-                "Receiver" => $mailAddress,
-                "password" => $newPassword
-            ];
-            
-            Mail::to($to)->send(new Mailer("密碼重設通知", "mails.passwordReset" , $params));
-            
-           
+        $params = [
+            "Receiver" => $mailAddress,
+            "password" => $newPassword
+        ];
+
+        Mail::to($to)->send(new Mailer("密碼重設通知", "mails.passwordReset", $params));
     }
     // TODO
-    public function editOfMember()
-    { }
+    public function editOfMember() {}
 
-    public function updateOfMember()
-    { }
+    public function updateOfMember() {}
 
-    public function deleteOfMember()
-    { }
+    public function deleteOfMember() {}
 }

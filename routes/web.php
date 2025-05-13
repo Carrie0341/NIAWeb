@@ -27,14 +27,29 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/alliance', function () {
+Route::get('/sport-alliance', function () {
     // return view('alliance');
     return view('alliances.sport-alliance');
 });
 
-Route::get('/news', function () {
-    return view('news');
-});
+// 活動相關路由
+Route::get('/news', 'EventController@index')->name('news');
+
+// 活動管理路由（不需要權限）- 這些特定路由應該在通用路由之前
+Route::get('/news/manage', 'EventController@manage')->name('news.manage');
+Route::get('/news/create', 'EventController@create')->name('news.create');
+Route::post('/news/store', 'EventController@store')->name('news.store');
+Route::get('/news/alliance/{id}', 'EventController@byAlliance')->name('news.alliance');
+Route::get('/news/{id}/edit', 'EventController@edit')->name('news.edit');
+Route::post('/news/{id}/update', 'EventController@update')->name('news.update');
+Route::get('/news/{id}/delete', 'EventController@delete')->name('news.delete');
+
+// 這個通用路由應該放在最後
+Route::get('/news/{id}', 'EventController@show')->name('news.show');
+
+// Route::get('/news', function () {
+//     return view('news');
+// });
 
 // Route::group(['prefix' => 'alliance'], function () {
 //     Route::get('/era', function () {
@@ -81,3 +96,7 @@ Route::get('/register', "AuthController@formOfRegister")->name('register');
 Route::post('/login', "AuthController@submitOfLogin");
 Route::post('/passwordForget', "AuthController@submitOfpswdForget")->name('passwordForget');
 Route::post('/register', "AuthController@submitOfRegister");
+
+
+Route::get('/check-storage', 'EventController@checkStorage');
+Route::get('/get-image', 'EventController@getImage')->name('get.image');

@@ -12,12 +12,18 @@ use Illuminate\Http\Request;
 class AdministratorController extends Controller
 {
 
+
     private $pageRange = 30;
 
     /* 主頁面 */
     public function index()
     {
-        return view('administrator.index');
+        return view('admin.index', [
+            // 其他數據...
+            'eventCount' => Event::count(),
+            'recentEvents' => Event::orderBy('created_at', 'desc')->take(5)->get()
+        ]);
+        // return view('administrator.index');
     }
 
     /* 用戶一覽 */
@@ -33,19 +39,20 @@ class AdministratorController extends Controller
 
         $businessRequest = BusinessRequest::orderBy('created_at', 'desc')->paginate(3);
         return view('administrator.requestGroup')->with("requests", $businessRequest)
-                                                 ->with("alliances", Alliance::all())
-                                                 ->with("allianceID" , -1);
+            ->with("alliances", Alliance::all())
+            ->with("allianceID", -1);
     }
 
     /* 提案一覽(過濾) */
-    public function requestAllianceView( $allianceID ) {
-        $businessRequest = BusinessRequest::where('belongTo' , $allianceID)->orderBy('created_at', 'desc')->paginate(1);
+    public function requestAllianceView($allianceID)
+    {
+        $businessRequest = BusinessRequest::where('belongTo', $allianceID)->orderBy('created_at', 'desc')->paginate(1);
         return view('administrator.requestGroup')->with("requests", $businessRequest)
-                                                 ->with("alliances", Alliance::all())
-                                                 ->with("allianceID" , $allianceID);
+            ->with("alliances", Alliance::all())
+            ->with("allianceID", $allianceID);
     }
 
-     /* 聯盟一覽 */
+    /* 聯盟一覽 */
     public function allianceView()
     {
         $alliances = Alliance::paginate($this->pageRange);
@@ -56,12 +63,9 @@ class AdministratorController extends Controller
     public function toggleReq($id)
     {
         $request = BusinessRequest::find($id);
-        if($request->accrpt == 0)
-        {
+        if ($request->accrpt == 0) {
             $request->accept = 1;
-        }
-        else
-        {
+        } else {
             $request->accept = 0;
         }
         $request->accept = 0;
@@ -73,7 +77,7 @@ class AdministratorController extends Controller
     public function approved($id)
     {
         $now = date("Y-m-d H:i:s");
-        $user = User::where("id" , $id)->first();
+        $user = User::where("id", $id)->first();
         $user->email_verified_at = $now;
         $user->save();
         return redirect()->back();
@@ -86,4 +90,29 @@ class AdministratorController extends Controller
         return redirect()->back();
     }
 
+
+    // 顯示活動管理頁面
+    public function eventView()
+    {
+        $events = Event::orderBy('event_date', 'desc')->paginate(10);
+        return view('admin.events', ['events' => $events]);
+    }
+
+    // 顯示添加活動頁面
+    public function eventAddView()
+    {
+        $alliances = Alliance::all();
+        return view('admin.event_add', ['alliances' => $alliances]);
+    }
+
+    // 顯示編輯活動頁面
+    public function eventEditView($id)
+    {
+        $event = Event::with('images')->findOrFail($id);
+        $alliances = Alliance::all();
+        return view('admin.event_edit', [
+            'event' => $event,
+            'alliances' => $alliances
+        ]);
+    }
 }

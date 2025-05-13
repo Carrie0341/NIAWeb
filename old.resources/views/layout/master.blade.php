@@ -36,8 +36,14 @@
         </a>
         <div id="navbarNav" class="navbar-collapse">
             <ul class="sidebar">
-                <li id="sport-alliance" class="sider">
-                    <a href="/sport-alliance" data-mobile="Alliance">
+                <!-- <li id="about" class="sider">
+                    <a href="/about" data-mobile="About">
+                        關於平台
+                        <img src="/images/menu.svg" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+                </li> -->
+                <li id="alliance" class="sider">
+                    <a href="/alliance" data-mobile="Alliance">
                         關於聯盟
                         <img src="/images/menu.svg" style="width: 20px; height: 20px; object-fit: contain;">
                     </a>
@@ -49,24 +55,16 @@
                     </a>
 
                 </li>
-                <li id="register" class="btn-reg sider">
-                    <a href="/register" data-mobile="Join Us">
-                        聯絡我們
-                    </a>
-                </li>
-
-
-                <!-- @if( !Session::has('user') || Session::has('isCompany'))
+                @if( !Session::has('user') || Session::has('isCompany'))
                 <li id="request" class="sider">
                     <a href="/request" data-mobile="Form">
                         企業提案
                         <img src="/images/menu.svg" style="width: 20px; height: 20px; object-fit: contain;">
                     </a>
                 </li>
+                @endif
 
-                @endif -->
-
-                <!-- @if( !Session::has('user') )
+                @if( !Session::has('user') )
                 <li id="login" class="sider">
                     <a href="javascript:;" data-mobile="Log In" onclick="loginBox()">
                         登入平台
@@ -91,9 +89,9 @@
                         登出
                     </a>
                 </li>
-                @endif -->
+                @endif
             </ul>
-            <!-- <div class="nav-footer">
+            <div class="nav-footer">
                 <h4>訂閱電子報</h4>
                 <form class="email">
                     <input type="email" placeholder="請輸入Email訂閱電子報">
@@ -118,7 +116,7 @@
                         <div class="hl"></div>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
         </div>
 

@@ -238,7 +238,7 @@
 </section>
 
 
-<!-- <section id="member" class="member">
+<section id="member" class="member">
     <div class="force-bg-white"></div>
     <h1>會員列表</h1>
     <div class="under"></div>
@@ -251,7 +251,7 @@
     </div>
 
     <img src="/images/oval.svg" class="blur-obj rellax">
-</section> -->
+</section>
 
 
 <!-- 會員權益 -->
@@ -389,9 +389,9 @@
     <div class="force-bg-gray">
         <img src="/images/alliance/welcome.png" data-rellax-speed="-1" data-rellax-percentage="0.8" class="bottom-img rellax">
     </div>
-    <h2>想了解更多嗎?歡迎聯絡我們！</h2>
-    <p class="context"></p>
-    <button class="btn-rad red" onclick="location.href='/register'">聯絡我們</button>
+    <h2>歡迎加入我們！</h2>
+    <p class="context">簡述加入我們的文字簡述加入我們的文字簡述，加入我們的文字簡述加入我約40個字</p>
+    <button class="btn-rad red" onclick="location.href='/register'">加入</button>
 </section>
 @endif
 
@@ -402,7 +402,7 @@
         <li><a href="#introduce">聯盟介紹</a></li>
         <li><a href="#advantage">技術優勢</a></li>
         <li><a href="#team">團隊成員</a></li>
-        <!-- <li><a href="#member">會員列表</a></li> -->
+        <li><a href="#member">會員列表</a></li>
         <li><a href="#right">會員權益</a></li>
         <li><a href="#industry">企業需求</a></li>
     </ul>
