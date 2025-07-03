@@ -174,6 +174,7 @@ class AuthController extends Controller
                     // 發送郵件
                     Mail::to('asdqweqa@go.edu.tw')->send(new Mailer("智能運動科技應用技術聯盟-聯絡表單內容(教師)", "mails.contactForm", $emailData));
                     Mail::to('typan@mail.ntust.edu.tw')->send(new Mailer("智能運動科技應用技術聯盟-聯絡表單內容(教師)", "mails.contactForm", $emailData));
+                    Mail::to('catchywjw@gmail.com')->send(new Mailer("智能運動科技應用技術聯盟-聯絡表單內容(教師)", "mails.contactForm", $emailData));
 
                     \Log::info('教師郵件已發送');
 
@@ -247,6 +248,7 @@ class AuthController extends Controller
                     // 發送郵件
                     Mail::to('asdqweqa@go.edu.tw')->send(new Mailer("智能運動科技應用技術聯盟-聯絡表單內容(企業)", "mails.contactForm", $emailData));
                     Mail::to('typan@mail.ntust.edu.tw')->send(new Mailer("智能運動科技應用技術聯盟-聯絡表單內容(企業)", "mails.contactForm", $emailData));
+                    Mail::to('catchywjw@gmail.com')->send(new Mailer("智能運動科技應用技術聯盟-聯絡表單內容(企業)", "mails.contactForm", $emailData));
 
                     \Log::info('企業郵件已發送');
 

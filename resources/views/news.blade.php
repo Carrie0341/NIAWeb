@@ -15,7 +15,7 @@
     }
 
     .event-item:hover {
-        background-color: #f9f9f9;
+        background-color: rgba(255, 255, 255, 0.4);
     }
 
     .event-date {
@@ -78,16 +78,16 @@
     <div class="container">
         <div class="page-header">
             <h1>最新消息</h1>
-            <div class="admin-buttons">
+            <!-- <div class="admin-buttons">
                 <a href="{{ route('news.manage') }}" class="btn-manage px-3">
                     <i class="fas fa-cog mr-1"></i> 管理活動
                 </a>
-            </div>
+            </div> -->
         </div>
 
         <div class="filters">
             <label class="alliance-title">選擇預顯示的聯盟</label>
-            <select class="alliance-filter" onchange="filterByAlliance(this.value)">
+            <select class="alliance-filter" onchange="filterByAlliance(this.value)" style="border-radius: 6px;">
                 <option value="all" {{ !isset($currentAlliance) ? 'selected' : '' }}>全部</option>
                 @foreach($alliances as $alliance)
                 <option value="{{ $alliance->id }}" {{ isset($currentAlliance) && $currentAlliance->id == $alliance->id ? 'selected' : '' }}>

@@ -1,16 +1,17 @@
 <footer id="footer" class="footer @yield('title')">
 
-    <img src="/images/footer/nthu.png" srcset="/images/footer/nthu@2x.png 2x,
-             /images/footer/nthu@3x.png 3x" class="map">
+    <div class="d-flex">
+        <img src="/images/footer/nthu.png" srcset="/images/footer/nthu@2x.png 2x,/images/footer/nthu@3x.png 3x" class="map">
 
-    <div class="contact">
-        <p style="margin: 0;">胡敏君教授</p>
-        <p>+886-988-281-500</p>
-        <p>anitahu@cs.nthu.edu.tw</p>
-        <p>
-            300新竹市東區光復路二段101號<br>
-            國立清華大學台達館
-        </p>
+        <div class="contact">
+            <p style="margin: 0;">胡敏君教授</p>
+            <!-- <p>+886-988-281-500</p> -->
+            <p>anitahu@cs.nthu.edu.tw</p>
+            <p>
+                300新竹市東區光復路二段101號<br>
+                國立清華大學台達館
+            </p>
+        </div>
     </div>
     <div class="pull">
         <div class="flogos">

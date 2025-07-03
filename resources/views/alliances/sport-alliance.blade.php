@@ -213,7 +213,7 @@
                 主持人
                 <span>胡敏君</span>
             </div>
-            <div> 清華資工系 教授 </div>
+            <div> 國立清華大學 資訊工程學系 教授 </div>
             <div> 電腦圖學、電腦視覺、延展實境、人機互動 </div>
         </li>
         <li class="item">
@@ -222,8 +222,17 @@
                 共同主持人
                 <span>朱宏國</span>
             </div>
-            <div> 清華資工系 教授 </div>
+            <div> 國立清華大學 資訊工程學系 教授 </div>
             <div> 計算機圖學、三維模型處理、貼圖紋理合成、視覺感知與應用 </div>
+        </li>
+        <li class="item">
+            <img src="/images/member/Yao.jpg">
+            <div class="left-line">
+                共同主持人
+                <span>姚智原</span>
+            </div>
+            <div> 國立臺灣科技大學 資訊工程系 副教授 </div>
+            <div> 電腦圖學、電腦視覺、延展實境、人機互動、醫療影像3D重建 </div>
         </li>
         <li class="item">
             <img src="/images/member/Pan.png">
@@ -231,23 +240,115 @@
                 共同主持人
                 <span>潘則佑</span>
             </div>
-            <div> 臺科大資工系 助理教授 </div>
+            <div> 國立臺灣科技大學 人工智慧跨域科技研究所 助理教授 </div>
             <div> 多媒體內容分析、電腦視覺、人機互動、延展實境 </div>
         </li>
     </ul>
 </section>
 
 
+<section id="member" class="member">
+    <div class="force-bg-white"></div>
+    <h1>會員列表</h1>
+    <div class="under"></div>
+
+    <div class="member-grid">
+        <!-- 有圖片的會員 -->
+        <div class="member-item">
+            <img src="/images/alliance/industry/AVer.png" class="member-logo">
+            <div class="member-name">圓展科技股份有限公司</div>
+        </div>
+        <div class="member-item">
+            <img src="/images/alliance/industry/MotionJet.jpg" class="member-logo">
+            <div class="member-name">新澄生活行銷有限公司</div>
+        </div>
+        <div class="member-item">
+            <img src="/images/alliance/industry/StatsInsight.jpg" class="member-logo">
+            <div class="member-name">灼見運動數據有限公司</div>
+        </div>
+        <div class="member-item">
+            <img src="/images/alliance/industry/HoSz.png" class="member-logo">
+            <div class="member-name">禾司國際有限公司</div>
+        </div>
+        <div class="member-item">
+            <img src="/images/alliance/industry/DeltaElectronics.png" class="member-logo">
+            <div class="member-name">台達電子股份有限公司</div>
+        </div>
+        <div class="member-item">
+            <img src="/images/alliance/industry/elta.png" class="member-logo">
+            <div class="member-name">愛爾達科技股份有限公司</div>
+        </div>
+        <div class="member-item">
+            <img src="/images/alliance/industry/igs.jpg" class="member-logo">
+            <div class="member-name">鈊象電子股份有限公司</div>
+        </div>
+        <div class="member-item">
+            <img src="/images/alliance/industry/T-security.jpg" class="member-logo">
+            <div class="member-name">擎雷防偽科技股份有限公司</div>
+        </div>
+        <div class="member-item">
+            <img src="/images/alliance/industry/Datavideo.png" class="member-logo">
+            <div class="member-name">洋銘科技股份有限公司</div>
+        </div>
+        <div class="member-item">
+            <img src="/images/alliance/industry/foxlink.jpg" class="member-logo">
+            <div class="member-name">正崴精密工業股份有限公司</div>
+        </div>
+        <div class="member-item">
+            <img src="/images/alliance/industry/landseedsports-medicine.png" class="member-logo">
+            <div class="member-name">聯新運醫股份有限公司</div>
+        </div>
+        <div class="member-item">
+            <img src="/images/alliance/industry/beihuangbio.png" class="member-logo">
+            <div class="member-name">北煌生物科技有限公司</div>
+        </div>
+        <div class="member-item">
+            <img src="/images/alliance/industry/PLYSTAR.png" class="member-logo">
+            <div class="member-name">百星物流有限公司</div>
+        </div>
+        <div class="member-item">
+            <img src="/images/alliance/industry/SportSquad.png" class="member-logo">
+            <div class="member-name">Sport Squad, Inc.</div>
+        </div>
+        <div class="member-item">
+            <img src="/images/alliance/industry/CHC.png" class="member-logo">
+            <div class="member-name">承業生醫投資控股股份有限公司</div>
+        </div>
+        <div class="member-item">
+            <img src="/images/alliance/industry/AI4Kids.png" class="member-logo">
+            <div class="member-name">AI4Kids</div>
+        </div>
+
+        <!-- 沒有圖片的會員 -->
+        <div class="member-item no-logo">
+            <div class="member-name-only">元覺科技股份有限公司</div>
+        </div>
+        <div class="member-item no-logo">
+            <div class="member-name-only">駭音科技有限公司</div>
+        </div>
+        <div class="member-item no-logo">
+            <div class="member-name-only">福興生物科技有限公司</div>
+        </div>
+        <div class="member-item no-logo">
+            <div class="member-name-only">私立育昇文理數學美語自然短期補習班</div>
+        </div>
+        <div class="member-item no-logo">
+            <div class="member-name-only">帷界無限創意整合有限公司</div>
+        </div>
+    </div>
+
+    <img src="/images/oval.svg" class="blur-obj rellax">
+</section>
 <!-- <section id="member" class="member">
     <div class="force-bg-white"></div>
     <h1>會員列表</h1>
     <div class="under"></div>
 
     <div class="logos">
-        {{--<img src="/images/alliance/industry/iStage.png" srcset="/images/alliance/industry/iStage@2x.png 2x,/images/alliance/industry/iStage@3x.png 3x" class="layer">--}}
-        {{--<img src="/images/alliance/industry/cte.png" srcset="/images/alliance/industry/cte@2x.png 2x,/images/alliance/industry/cte@3x.png 3x" class="layer">--}}
-        {{--<img src="/images/alliance/industry/tpk.png" srcset="/images/alliance/industry/tpk@2x.png 2x,/images/alliance/industry/tpk@3x.png 3x" class="layer">--}}
-        {{--<img src="/images/alliance/industry/igs.png" srcset="/images/alliance/industry/igs@2x.png 2x,/images/alliance/industry/igs@3x.png 3x" class="layer">--}}
+        <img src="/images/alliance/industry/iStage.png" srcset="/images/alliance/industry/iStage@2x.png 2x,/images/alliance/industry/iStage@3x.png 3x" class="layer">
+        <img src="/images/alliance/industry/cte.png" srcset="/images/alliance/industry/cte@2x.png 2x,/images/alliance/industry/cte@3x.png 3x" class="layer">
+        <img src="/images/alliance/industry/tpk.png" srcset="/images/alliance/industry/tpk@2x.png 2x,/images/alliance/industry/tpk@3x.png 3x" class="layer">
+        <img src="/images/alliance/industry/igs.png" srcset="/images/alliance/industry/igs@2x.png 2x,/images/alliance/industry/igs@3x.png 3x" class="layer">
     </div>
 
     <img src="/images/oval.svg" class="blur-obj rellax">

@@ -42,6 +42,27 @@
                         <img src="/images/menu.svg" style="width: 20px; height: 20px; object-fit: contain;">
                     </a>
                 </li>
+                <li id="nav-team" class="sider">
+                    <a href="/sport-alliance#team" data-mobile="team">
+                        團隊成員
+                        <img src="/images/menu.svg" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+
+                </li>
+                <li id="nav-member" class="sider">
+                    <a href="/sport-alliance#member" data-mobile="member">
+                        合作夥伴
+                        <img src="/images/menu.svg" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+
+                </li>
+                <li id="member-right" class="sider">
+                    <a href="/sport-alliance#right" data-mobile="Right">
+                        會員專區
+                        <img src="/images/menu.svg" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+
+                </li>
                 <li id="news" class="sider">
                     <a href="/news" data-mobile="News">
                         最新消息
