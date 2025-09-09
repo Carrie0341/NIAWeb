@@ -107,8 +107,136 @@
 
     }
   }
+  
 }
 
+/* 彈出式活動公告樣式 */
+.event-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  max-width: 500px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(18, 47, 81, 0.25);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+  &.hidden {
+    transform: translateY(150%);
+    opacity: 0;
+  }
+  
+  @media screen and (max-width: 576px) {
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+  
+  .event-popup-content {
+    padding: 0;
+  }
+  
+  .event-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #122f51;
+    color: white;
+    
+    h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    
+    .event-popup-close {
+      font-size: 24px;
+      cursor: pointer;
+      line-height: 1;
+      
+      &:hover {
+        color: #ccc;
+      }
+    }
+  }
+  
+  .event-popup-body {
+    padding: 20px;
+    display: flex;
+    
+    @media screen and (max-width: 480px) {
+      flex-direction: column;
+    }
+  }
+  
+  .event-popup-info {
+    flex: 1;
+    padding-right: 15px;
+    
+    @media screen and (max-width: 480px) {
+      padding-right: 0;
+      margin-bottom: 15px;
+    }
+  }
+  
+  .event-popup-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    
+    i {
+      color: #122f51;
+      margin-right: 8px;
+      font-size: 16px;
+      min-width: 16px;
+    }
+    
+    span {
+      font-size: 14px;
+      color: #333;
+    }
+  }
+  
+  .event-popup-desc {
+    font-size: 13px;
+    color: #555;
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+  
+  .event-popup-qrcode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+    
+    .event-popup-btn {
+      display: inline-block;
+      background-color: #e74c3c;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background-color: #c0392b;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
 
 /**
   Style of each alliance detail page

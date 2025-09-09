@@ -40,6 +40,35 @@
     </div>
 </section>
 
+<!-- 活動公告區塊 -->
+<!-- <div id="event-popup" class="event-popup">
+    <div class="event-popup-content">
+        <div class="event-popup-header">
+            <h3>前瞻AI運動科技論壇</h3>
+            <span class="event-popup-close" onclick="closeEventPopup()">&times;</span>
+        </div>
+        <div class="event-popup-body">
+            <div class="event-popup-info">
+                <div class="event-popup-item">
+                    <i class="fa fa-calendar"></i>
+                    <span>時間：2025年8月4日 (一) 14:00-16:00</span>
+                </div>
+                <div class="event-popup-item">
+                    <i class="fa fa-map-marker"></i>
+                    <span>地點：國立清華大學台達館106教室</span>
+                </div>
+                <p class="event-popup-desc">
+                    國科會三大運動科技小聯盟(智能運動科技應用技術聯盟、運動科技產學技術聯盟、以人工智慧導向的虛擬智能健康運動服務產學技術聯盟)共同舉辦
+                </p>
+            </div>
+            <div class="event-popup-qrcode">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://docs.google.com/forms/d/e/1FAIpQLScjKW7Lp4qdCcJSw0dsDcEBg1-3w-PSfj4XuhGhzyN3VPMQaA/viewform" alt="報名表QR Code">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScjKW7Lp4qdCcJSw0dsDcEBg1-3w-PSfj4XuhGhzyN3VPMQaA/viewform" target="_blank" class="event-popup-btn">立即報名</a>
+            </div>
+        </div>
+    </div>
+</div> -->
+
 
 
 <section id="advantage" class="adv">
@@ -259,7 +288,7 @@
             <div class="member-name">圓展科技股份有限公司</div>
         </div>
         <div class="member-item">
-            <img src="/images/alliance/industry/MotionJet.jpg" class="member-logo">
+            <img src="/images/alliance/industry/MotionJet.png" class="member-logo">
             <div class="member-name">新澄生活行銷有限公司</div>
         </div>
         <div class="member-item">
@@ -589,5 +618,20 @@
             console.log(err);
         }
     });
+</script>
+
+<script>
+    // 活動公告彈窗控制
+    document.addEventListener('DOMContentLoaded', function() {
+        // 頁面載入後顯示彈窗，延遲1秒顯示，避免與頁面載入衝突
+        setTimeout(function() {
+            document.getElementById('event-popup').classList.remove('hidden');
+        }, 1000);
+    });
+
+    // 關閉彈窗
+    function closeEventPopup() {
+        document.getElementById('event-popup').classList.add('hidden');
+    }
 </script>
 @endsection
